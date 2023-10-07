@@ -1,13 +1,15 @@
 import React from 'react'
 import './App.css';
-import Homepage from './homepage/Homepage';
+
+import Homepage from './Routes/homepage/Homepage';
+import Navbar from './components/Navbar';
 import Header from './Header';
 
 const App = () => {
   return (
-    <div>
+    <div className='App'>
       <Header />
-      <Homepage />
+      <Homepage/>
     </div>
   )
 }

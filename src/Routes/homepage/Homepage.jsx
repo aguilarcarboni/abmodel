@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Globe from './components/Globe'
 
 const Homepage = () => {
