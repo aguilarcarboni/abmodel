@@ -48,7 +48,6 @@ function Globe({globeIsReady}) {
         width={width}
         showGlobe={true}
         ref={globeEl}
-        onGlobeReady={onGlobeReady}
         labelsData={landingSites}
         labelText="label"
         labelSize={1.7}
