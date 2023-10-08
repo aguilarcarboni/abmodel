@@ -3,7 +3,7 @@ import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import * as d3 from "d3-scale"
 import ReactGlobe from 'react-globe.gl';
 
-function Globe({globeIsLoading}) {
+function Globe() {
 
   const {height, width} = useWindowDimensions()
   const globeEl = useRef(undefined);
@@ -33,9 +33,7 @@ function Globe({globeIsLoading}) {
         options={options}
         height = {height}
         width={width}
-        animateIn={true}
-        waitForGlobeReady={true}
-        onGlobeReady={globeIsLoading(false)}
+
         showGlobe={true}
         showAtmosphere={true}
         ref={globeEl}
