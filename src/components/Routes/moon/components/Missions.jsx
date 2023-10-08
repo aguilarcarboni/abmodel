@@ -34,12 +34,12 @@ function Missions() {
     globeEl.current.pointOfView({ lat: 39.6, lng: -98.5, altitude: 3}); 
     globeEl.current.controls().autoRotateSpeed = 0.5;
 
-    let jsonData = require('../lib/moon_landings.json');
+    let jsonData = require('../assets/moon_landings.json');
     setLandingSites(jsonData)
 
   }, []); 
 
-  console.log(activePoint)
+  console.log(landingSites)
   
   return (
     <div className='globeContainer'>
