@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(false)
@@ -9,12 +10,12 @@ const Navbar = () => {
                 <button className='toggler'>
                     <i class="bi bi-list" style={{fontSize: '3vmax', color: 'white'}}></i>
                 </button>
-                <button className='button'>
+                <Link to='/'>
                     <p className='subtitle'>Home</p>
-                </button>
-                <button className='button'>
+                </Link>
+                <Link to='/about'>
                     <p className='subtitle'>Nosotros</p>
-                </button>
+                </Link>
             </div>
         </div>
     </div>

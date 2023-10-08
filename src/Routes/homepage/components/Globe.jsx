@@ -3,7 +3,7 @@ import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import * as d3 from "d3-scale"
 import ReactGlobe from 'react-globe.gl';
 
-function Globe({globeIsReady}) {
+function Globe({globeIsReady,renderGlobe}) {
   const [landingSites, setLandingSites] = useState([]);
 
   const {height, width} = useWindowDimensions()
@@ -47,6 +47,7 @@ function Globe({globeIsReady}) {
         height = {height}
         width={width}
         showGlobe={true}
+        showAtmosphere={true}
         ref={globeEl}
         labelsData={landingSites}
         labelText="label"

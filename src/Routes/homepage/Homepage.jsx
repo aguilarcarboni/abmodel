@@ -3,9 +3,10 @@ import React, {useState} from 'react'
 import Globe from './components/Globe'
 
 const Homepage = () => {
+  const [renderGlobe, setRenderGlobe] = useState(false)
   return (
     <div className = 'homeContainer'>
-        <Globe />
+        <Globe renderGlobe = {renderGlobe}/>
     </div>
   )
 }
