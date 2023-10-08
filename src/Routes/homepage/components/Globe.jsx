@@ -4,7 +4,9 @@ import * as d3 from "d3-scale"
 import ReactGlobe from 'react-globe.gl';
 
 function Globe({globeIsReady,renderGlobe}) {
+
   const [landingSites, setLandingSites] = useState([]);
+  const [isLoadingGlobeTexture, setIsLoadingGlobeTexture] = useState(true)
 
   const {height, width} = useWindowDimensions()
   const globeEl = useRef(undefined);
@@ -14,9 +16,7 @@ function Globe({globeIsReady,renderGlobe}) {
   const options = {
     focusAnimationDuration: 2000,
     focusEasingFunction: ['Linear', 'None'],
-
-    pointLightIntensity: 0,
-    globeGlowColor: 'blue',
+    ambientLightColor: 'white',
   };
 
   function onClick() {
@@ -39,16 +39,18 @@ function Globe({globeIsReady,renderGlobe}) {
   
   return (
     <div className='globeContainer'>
-      <button onClick={onClick} >Mover solito</button>
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        backgroundColor = "#000000"
         options={options}
         height = {height}
         width={width}
+
         showGlobe={true}
         showAtmosphere={true}
         ref={globeEl}
+
         labelsData={landingSites}
         labelText="label"
         labelSize={1.7}
