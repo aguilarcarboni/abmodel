@@ -213,3 +213,13 @@ button {
     }
   }
 }
+
+.quakesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  .subtitle {
+    font-size: 1.5vmax;
+  }
+}

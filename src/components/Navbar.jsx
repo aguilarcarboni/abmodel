@@ -43,8 +43,8 @@ const Navbar = () => {
                             <p className={location.pathname === '/moon/missions' ? 'active indent': 'indent'}>Missions</p>
                         </Link>:''
                     }
-                    <Link className='button' to='/earthquakes'>
-                        <p className={location.pathname === '/earthquakes' ? 'link active':'link'}>Earthquakes</p>
+                    <Link className='button' to='/quakes'>
+                        <p className={location.pathname === '/quakes' ? 'link active':'link'}>Quakes</p>
                     </Link>
                     <Link className='button' to='/404'>
                         <p className={location.pathname === '/500' ? 'link active':'link'}>Future ...</p>
