@@ -1,12 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import Globe from './components/Globe'
 
 const Homepage = () => {
-  const [renderGlobe, setRenderGlobe] = useState(false)
   return (
     <div className = 'homeContainer'>
-        <Globe renderGlobe = {renderGlobe}/>
+        <Globe />
     </div>
   )
 }

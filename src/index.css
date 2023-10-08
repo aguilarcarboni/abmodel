@@ -1,3 +1,9 @@
+:root {
+  --grayTransparent: rgba(75,75,75, .25);
+  --blue: rgba(0, 75, 173,1)
+}
+
+
 html {
   margin: 0;
   overflow: hidden;
@@ -14,8 +20,17 @@ body {
   color: white;
 }
 
+.hidden {
+  width: 0 !important;
+  overflow: hidden;
+}
+
+.App {
+  width: 100%;
+}
+
 h1 {
-  margin: 0 0 0 0;
+  margin: 0;
   color: white;
 }
 
@@ -29,69 +44,172 @@ button {
   border: none;
 }
 
-.title {
-  font-size: 6vh;
+.active {
+  color: red !important;
 }
 
-.subtitle {
-  font-size: 2vh;
-}
-
-.App {
-  margin: 0 0 0 0;
+.indent {
+  margin: 0 0 0 2vw;
 }
 
 .headerContainer {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 10vh;
-  position: absolute;
+  margin: 2vh 0 0 0;
+  justify-content: center;
   z-index: 100;
+  width: 100%;
+  height: fit-content;
+  position: absolute;
   .titleContainer {
-    margin: 5vh 0 0 0;
     width: 33%;
     text-align: center;
+    .title {
+      font-size: 5vmax;
+    }
+    .subtitle {
+      font-size: 1.5vmax;
+    }
   }
 }
 
 .navbarContainer {
-  z-index: 100;
-  width: 33vw;
-  height: 100vh;
+  display: flex;
+  z-index: 150;
+  width: fit-content;
+  height: 100%;
   text-align: start;
-  .menu {
+  position: absolute;
+  .toggler {
     display: flex;
-    background-color: rgba(112, 112, 112, 0.25);
-    width: 50%;
-    height: 100%;
+    margin: 5vh 0 0 2vw;
+  }
+  .menu {
+    background-color:var(--grayTransparent);
+    display: flex;
+    width: 15vw;
+    transition: width 0.75s ease-in-out;
+    overflow: hidden;
     .content {
       display: flex;
       flex-direction: column;
       align-items: start;
-      margin: 5vh 0 0 2vw;
+      margin: 5vh 0 0 1vw;
       .toggler {
         padding: 0;
         display: flex;
-        justify-content: start;
       }
       .button {
+        margin: 2vh 0 2vh 0;
         padding: 2vh 2vw 2vh 0;
         cursor: pointer;
+        text-decoration: none;
+        .link {
+          font-size: 1.5vmax;
+          font-weight: bold;
+        }
       }
     }
   }
 }
 
 .homeContainer {
-  display: flex;
+  display: block;
   justify-content: center;
-  align-items: center;
   height: fit-content;
   width: 100vw;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  .subtitle {
+    font-size: 1.5vmax;
+  }
+}
+
+.moonInfoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  .subtitle {
+    font-size: 1.5vmax;
+  }
+}
+
+.ourTeamContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  .subtitle {
+    font-size: 1.5vmax;
+  }
+}
+
+.spaceAppsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  .subtitle {
+    font-size: 1.5vmax;
+  }
+  .information {
+    height: 80%;
+    .block {
+      height: 80%;
+    }
+  }
 }
 
 .globeContainer {
   background-color: rgb(0, 0, 0);
   margin: 0 0 0 0;
+}
+
+.information {
+  position: absolute;
+  width: 65%;
+  height: 70%;
+  display: block;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 100;
+  .block {
+    background-color: var(--grayTransparent);
+    margin: 0 2vw 0 2vw;
+    border-radius: 2vmax;
+    width: 100%;
+    height: 25vh;
+    padding: 3vmax;
+    display: flex;
+    flex-direction: column;
+    .link {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: end;
+      text-decoration: none;
+      cursor: pointer;
+      .button {
+        background-color: var(--blue);
+        padding: 2vmax;
+        border-radius: 2vmax;
+        width: fit-content;
+        height: fit-content;
+        .subtitle {
+          font-size: 1.5vmax;
+        }
+      }
+    }
+    .title {
+      font-size: 2.5vmax;
+      font-weight: bold;
+    }
+  }
 }
