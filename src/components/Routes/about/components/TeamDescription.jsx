@@ -1,8 +1,6 @@
 import React from 'react'
 
 const TeamDescription = () => {
-
-    const baseURL = ''
     const members = [
         {
             name: "Stephanie",
@@ -27,7 +25,7 @@ const TeamDescription = () => {
     <div className='membersContainers'>
         {members.map((member) => (
             <div key = {member.name} className='memberContainer'>
-                <img src={require("../../../assets/fotos/" + member.name + ".jpeg")} alt = {member.name} className='image'></img>
+                <img src={require(`../../../assets/fotos/${member.name}.jpeg`)} alt = {member.name} className='image'></img>
                 <p className='subtitle'>{member.name}</p>
             </div>
         ))}
