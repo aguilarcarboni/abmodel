@@ -6,8 +6,9 @@ import LoadingPage from '../../LoadingPage'
 const Homepage = () => {
   const [loading, setLoading] = useState(true)
   
-  function onGlobeReady(globeReady) {
-    setLoading(false)
+  function onGlobeReady() {
+    // setLoading(false)
+    console.log('test');
   }
 
   return (

@@ -16,7 +16,7 @@ function Globe({globeIsReady}) {
   };
 
   function onGlobeReady() {
-    globeIsReady(true);
+    globeIsReady();
   }
 
   useEffect(() => {
