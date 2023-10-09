@@ -58,9 +58,13 @@ function Missions() {
       </div>
       {activePoint.length !== 0 ? 
       <div className='popup'>
-        {activePoint.map((el, index) => (
-          <div key={index}>{el.lat}</div>
-        ))}
+          {activePoint.map((el,index)=> (
+            <div key={index}>
+            <p className='subtitle'>{el.lat}</p>
+            <p className='subtitle'>{el.lng}</p>
+            <p className='subtitle'>{el.lat}</p>
+            </div>
+          ))}
       </div>:''}
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
