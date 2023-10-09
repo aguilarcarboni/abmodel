@@ -13,6 +13,7 @@ import Missions from './components/Routes/moon/components/Missions';
 import OurTeam from './components/Routes/about/components/OurTeam';
 import SpaceApps from './components/Routes/about/components/SpaceApps';
 import Quakes from './components/Routes/quakes/Quakes';
+import Future from './components/Routes/future/Future';
 
 import logo from './components/assets/nasa-logo.png'
 
@@ -28,10 +29,10 @@ const App = () => {
           <Route exact path='/about' element={<About/>}/>
             <Route exact path='/about/our-team' element={<OurTeam/>}/>
             <Route exact path='/about/space-apps' element={<SpaceApps/>}/>
-          <Route exact path ='/moon' element={<Moon/>}/>
+            <Route exact path ='/moon' element={<Moon/>}/>
             <Route exact path ='/moon/missions' element={<Missions />}/>
           <Route exact path='/quakes' element={<Quakes/>}/>
-          <Route exact path ='/404' element={'404'}/>
+          <Route exact path ='/future' element={<Future/>}/>
           <Route exact path='/resources' element={<Resources/>}/>
         </Routes>
         <div className='logoContainer'>

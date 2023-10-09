@@ -352,3 +352,59 @@ button {
     }
   }
 }
+
+.resourcesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .block {
+    margin: 5vh 0 0 0;
+    height: 60vh !important;
+    padding: 0;
+  }
+}
+
+.futureContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .block {
+    margin: 5vh 0 0 0;
+    height: 60vh !important;
+    overflow-y: scroll;
+    .divider {
+      display: flex;
+      justify-content: center;
+      margin: 2vh 0 2vh 0;
+      width: 100%;
+      height: 100%;
+      flex-wrap: wrap;
+      .divider>* {
+        list-style: none;
+        flex: 0 0 33.333333%;
+      }
+      .div-block {
+        margin: 2vh 2vw 3vh 2vw;
+        display: block;
+        align-items: flex-start;
+        border-radius: 2vmax;
+        width: 25%;
+        height: 60vh;
+        background-color: var(--red);
+        overflow: hidden;
+        .title-block {
+          width: 100%;
+          height: fit-content;
+          padding: 1vh 0 1vh 0;
+          border-radius: 2vmax;
+          background-color: white;
+          .subtitle {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

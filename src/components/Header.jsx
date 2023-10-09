@@ -10,7 +10,6 @@ const Header = () => {
     <div className = 'headerContainer'>
         <div className = 'titleContainer'>
           <h1 className = "title" >ABMODEL</h1>
-          <p className = "subtitle" >  {location.pathname} </p>
         </div>
     </div>
   )

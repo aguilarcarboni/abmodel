@@ -35,6 +35,7 @@ const SpaceApps = () => {
           </p>
           <p className='subtitle'>
             Our challenge is to develop an app that plots the seismic data these instruments transmitted back to Earth on an interactive 3D digital moon globe for the public 🌑 
+            https://jamboard.google.com/d/1LYc2lkACWDQPqBNe8mqTd4OYVIta9zisJGIDmwwAjBY/edit?usp=meet_whiteboard'
           </p>
           <p className='subtitle'>            
             See more: https://www.spaceappschallenge.org/2023/challenges/make-a-moonquake-map-20/

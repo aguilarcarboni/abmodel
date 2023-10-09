@@ -25,7 +25,6 @@ const OurTeam = () => {
           <p className='subtitle'>
             For most of us, it is the first time participating in a Space Apps Challenge and we cannot wait to do our best and create something great, inspiring and creative together. Lunar Exploration, here we come! 😎
           </p>
-          <div></div>
         <TeamDescription />
         </div>
       </div>

@@ -29,8 +29,8 @@ const Navbar = () => {
             <Link className='button' to='/quakes'>
                 <p className={location.pathname === '/quakes' ? 'link active':'link'}>Quakes</p>
             </Link>
-            <Link className='button' to='/404'>
-                <p className={location.pathname === '/500' ? 'link active':'link'}>Future ...</p>
+            <Link className='button' to='/future'>
+                <p className={location.pathname === '/future' ? 'link active':'link'}>Future collabs</p>
             </Link>
             <Link className='button' to='/resources'>
                 <p className={location.pathname === '/resources' ? 'link active':'link'}>Resources</p>
