@@ -1,20 +1,15 @@
 import React, { useRef } from 'react'
-import Lottie from 'react-lottie'
+import Lottie from 'lottie-react'
 import loadingAnimationData from '../assets/loadingAnimation.json'
 import { CSSTransition } from 'react-transition-group';
 
 const LoadingPage = ({showLoadingPage}) => {
     const nodeRef = useRef(null);
+    const animationStyle = {
+        heigh: '400px',
+        width: '400px',
+    }
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: loadingAnimationData,
-        rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice"
-        }
-      };
-    
     return (
         <div>
         <CSSTransition
@@ -26,11 +21,13 @@ const LoadingPage = ({showLoadingPage}) => {
       >
         <div className='loadingPageContainer' ref={nodeRef}>
             <div className='loadingAnimation'>
-                <Lottie 
-                    options={defaultOptions}
-                    height={400}
-                    width={400}
+                <div>
+                <Lottie
+                    animationData={loadingAnimationData}
+                    loop={true}
+                    style={animationStyle}
                 />
+                </div>
             </div>
         </div>
     </CSSTransition>

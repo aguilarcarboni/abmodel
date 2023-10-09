@@ -220,8 +220,7 @@ button {
     position: fixed;
     height: 100%;
     width: 100%;
-    top: 30%;
-    left: auto;
+    margin: 33%;
   }
 }
 
