@@ -1,6 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react'
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import { Link } from 'react-router-dom';
 import * as d3 from "d3-scale"
+
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
+
 import ReactGlobe from 'react-globe.gl';
 
 function Missions() {
@@ -34,18 +37,25 @@ function Missions() {
     globeEl.current.pointOfView({ lat: 39.6, lng: -98.5, altitude: 3}); 
     globeEl.current.controls().autoRotateSpeed = 0.5;
 
-    let jsonData = require('../lib/moon_landings.json');
+    let jsonData = require('../assets/moon_landings.json');
     setLandingSites(jsonData)
 
   }, []); 
 
-  console.log(activePoint)
+  console.log(landingSites)
   
   return (
-    <div className='globeContainer'>
-      {activePoint.length !== 0 ? activePoint.map((el, index) => (
-        <div key={index}>{el.lat}</div>
-      )):''}
+    <div className='missionsContainer'>
+      <div className='back'> 
+        <Link className='button' to='../moon'>
+            <p className='subtitle'>Go back</p>
+        </Link>
+      </div>
+      {activePoint.length !== 0 ? <div className='popup'>
+        {activePoint.map((el, index) => (
+          <div key={index}>{el.lat}</div>
+        ))}
+      </div>:''}
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"

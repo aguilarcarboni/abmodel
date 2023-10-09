@@ -5,13 +5,11 @@ import EmptyGlobe from '../../EmptyGlobe'
 const Moon = () => {
   return (
     <div className='moonInfoContainer'>
-        <div className='information'>
-          <p className='subtitle'>
-            <div className='block'>
-              <p className='title'>Moon</p>
-              <p>View more</p>
-            </div>
-          </p>
+      <div className='information'>
+          <div className='block'>
+            <p className='title'>Moon</p>
+            <p className='subtitle'>View more</p>
+          </div>
           <Link className='link' to='missions'>
               <div className='button'>
                 <p className='subtitle'>Vizualize lunar missions</p>
