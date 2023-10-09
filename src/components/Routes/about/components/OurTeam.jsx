@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import EmptyGlobe from '../../../EmptyGlobe'
+import TeamDescription from './TeamDescription'
 
 const OurTeam = () => {
   return (
@@ -12,12 +13,21 @@ const OurTeam = () => {
         </Link>
       </div>
       <div className='information'>
-        <p className='subtitle'>
-          We are Team Alfa Buena Onda Maravilla Dinamita Escuadrón Lobo. 
-          We love space, technology, learning new things and we are very excited for this opportunity to participate! 
-          We are very excited because it is just the beginning!! 🚀 It's the first time in something like this and we are very excited about all this. 
-          We will do our best to do something great together ❤️ inspiring and creative 😎  Lunar Exploration, here we come!
-        </p>
+        <div className='block'>
+          <p className='title'>
+            We are Team Alfa Buena Onda Maravilla Dinamita Escuadrón Lobo. 
+          </p>
+          <p className='title'>
+            ABMODEL for short.
+          </p>
+          <p className='subtitle'>
+            We love space, technology and learning new things, so we are very excited for this opportunity to participate!  🚀
+          </p>
+          <p className='subtitle'>
+            For most of us, it is the first time participating in a Space Apps Challenge and we cannot wait to do our best and create something great, inspiring and creative together. Lunar Exploration, here we come! 😎
+          </p>
+        <TeamDescription />
+        </div>
       </div>
       <EmptyGlobe />
     </div>

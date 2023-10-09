@@ -21,7 +21,6 @@ function Globe({globeIsReady}) {
   ]
 
   const [quakes, setQuakes] = useState([])
-  const [state, setState] = useState(globeState.POINTS)
   const [activeFilters, setActiveFilters] = useState(
     new Array(3).fill(true)
   );
@@ -57,7 +56,7 @@ function Globe({globeIsReady}) {
     setQuakes(jsonData)
   },[])
 
-  const pointsData = [...quakes].map((element, index) => ({
+  const pointsData = [...quakes].map((element) => ({
     label: element.label,
     lat: element.lat,
     lng: element.lng,
@@ -70,7 +69,7 @@ function Globe({globeIsReady}) {
   }));
 
 
-  const ringsData = [...quakes].map((element, index) => ({
+  const ringsData = [...quakes].map((element) => ({
     label: element.label,
     lat: element.lat,
     lng: element.lng,
@@ -80,8 +79,6 @@ function Globe({globeIsReady}) {
     hour: element.hour,
     minute: element.minute,
     second: element.second,
-    maxR: 20,
-    propagationSpeed: 20,
   }))
 
   return (
