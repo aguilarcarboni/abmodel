@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 
 import Globe from './components/Globe'
+import LoadingPage from '../../LoadingPage'
 
 const Homepage = () => {
+  const [loading, setLoading] = useState(true)
+  
+  function onGlobeReady() {
+    setLoading(false)
+  }
+
   return (
-    <div className = 'homeContainer'>
-        <Globe />
-    </div>
+    <>
+      <LoadingPage showLoadingPage={loading}/>
+      <div className = 'homeContainer'>
+        <Globe globeIsReady={onGlobeReady}/>
+      </div>
+    </>
   )
 }
 

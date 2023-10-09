@@ -4,8 +4,7 @@ import * as d3 from "d3-scale"
 import ReactGlobe from 'react-globe.gl';
 import { globeState } from '../../../types/types'
 
-function Globe() {
-
+function Globe({globeIsReady}) {
   const {height, width} = useWindowDimensions()
   const globeEl = useRef(undefined);
 
@@ -34,6 +33,10 @@ function Globe() {
     focusEasingFunction: ['Linear', 'None'],
     ambientLightColor: 'white',
   };
+
+  function onGlobeReady() {
+    globeIsReady();
+  }
 
   const handleOnChange = (position) => {
     const updatedCheckedState = activeFilters.map((item, index) =>
@@ -108,6 +111,9 @@ function Globe() {
         showGlobe={true}
         showAtmosphere={true}
         ref={globeEl}
+        animateIn={true}
+        waitForGlobeReady={true}
+        onGlobeReady={onGlobeReady}
 
         pointsData={activeFilters[0] ? pointsData:[]}
         labelSize={1.7}
