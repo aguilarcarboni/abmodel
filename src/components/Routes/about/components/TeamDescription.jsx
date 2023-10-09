@@ -9,7 +9,7 @@ const TeamDescription = () => {
             name: 'Stephanie',
         },
         {
-            name: 'Andrea',
+            name: 'Andreaa',
         },
         {
             name: 'Carolina',
