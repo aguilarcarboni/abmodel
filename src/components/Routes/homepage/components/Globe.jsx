@@ -9,8 +9,20 @@ function Globe() {
   const {height, width} = useWindowDimensions()
   const globeEl = useRef(undefined);
 
+  const filters = [
+    {
+      name: 'points',
+    },
+    {
+      name: 'rings',
+    },
+  ]
+
   const [quakes, setQuakes] = useState([])
   const [state, setState] = useState(globeState.POINTS)
+  const [activeFilters, setActiveFilters] = useState(
+    new Array(2).fill(true)
+  );
 
   const colorScale = d3.scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
 
@@ -20,13 +32,12 @@ function Globe() {
     ambientLightColor: 'white',
   };
 
-  function switchState() {
-    if (state === globeState.POINTS) {
-      setState(globeState.RINGS)
-    } else {
-      setState(globeState.POINTS)
-    }
-  }
+  const handleOnChange = (position) => {
+    const updatedCheckedState = activeFilters.map((item, index) =>
+      index === position ? !item : item
+    );
+    setActiveFilters(updatedCheckedState);
+  };
 
   useEffect(() => {
     // set viewport settings
@@ -67,9 +78,22 @@ function Globe() {
     propagationSpeed: 20,
   }))
 
+  console.log(activeFilters)
+
   return (
     <div className='globeContainer'>
-      <button onClick={switchState} style={{backgroundColor:'white'}}> Switch state </button>
+      {filters.map((el, index) => (
+        <div key = {index}>
+          <label>{el.name}</label>
+          <input
+            type="checkbox"
+            name={el.name}
+            value={el.name}
+            checked={activeFilters[index]}
+            onChange={() => handleOnChange(index)}
+          />
+        </div>
+      ))}
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
@@ -82,14 +106,14 @@ function Globe() {
         showAtmosphere={true}
         ref={globeEl}
 
-        pointsData={state === globeState.POINTS ? pointsData:[]}
+        pointsData={activeFilters[0] ? pointsData:[]}
         labelSize={1.7}
         pointRadius={1}
         pointAltitude={0}
         pointColor={d => colorScale(d.agency)}
         pointLabel={d => `<div><b>${d.label}</b></div>`}
 
-        ringsData={state === globeState.RINGS ? ringsData:[]}
+        ringsData={activeFilters[1] ? ringsData:[]}
         ringColor={d => colorScale(d.agency)}
         ringMaxRadius = {d => d.magnitude * 2}
         ringPropagationSpeed = {d => d.magnitude}
