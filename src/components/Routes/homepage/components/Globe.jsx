@@ -38,7 +38,6 @@ function Globe({globeIsReady}) {
     globeIsReady();
   }
 
-  useEffect(() => {
   const handleOnChange = (position) => {
     const updatedCheckedState = activeFilters.map((item, index) =>
       index === position ? !item : item
