@@ -7,8 +7,7 @@ const Homepage = () => {
   const [loading, setLoading] = useState(true)
   
   function onGlobeReady() {
-    // setLoading(false)
-    console.log('test');
+    setLoading(false)
   }
 
   return (
