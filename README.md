@@ -5,11 +5,11 @@ At present, NASA possesses a repository of seismological data obtained during th
 #### Objective:
 To develop a publicly accessible application for visualizing lunar earthquakes. General information will be provided to help users understand essential concepts such as earthquakes, the Moon, past missions, and the operation of seismometers. This approach ensures that users not only gain knowledge but also have a comprehensive interactive experience.
 
-####How It Was Developed:
+#### How It Was Developed:
 The application was developed using the JavaScript React library for all the interactive interface and Python programming language for data processing. A GitHub repository was created to manage the coding tasks for plotting seismic data points based on their latitude and longitude coordinates. Additionally, the programming of filters that can be applied to the map was implemented through this repository. The web design, including its presentation and interface, was also programmed using the same platform.
 
 
-####About the team
+#### About the team
 Andrea Hidalgo Piedra  ahidalgo094@gmail.com - Geología y Cívil UCR
 Víctor Mora Vega - vmv4655@gmail.com  - Software developer
 Stephanie Leitón Ramírez - stephleitoncr@gmail.com  - Computación UCR
