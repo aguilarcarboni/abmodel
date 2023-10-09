@@ -2,11 +2,11 @@ import React, {useEffect, useRef, useState} from 'react'
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import * as d3 from "d3-scale"
 import ReactGlobe from 'react-globe.gl';
-import { globeState } from '../../../types/types'
 
 function Globe({globeIsReady}) {
   const {height, width} = useWindowDimensions()
   const globeEl = useRef(undefined);
+  const [activePoint, setActivePoint] = useState([])
 
   const filters = [
     {
@@ -35,6 +35,16 @@ function Globe({globeIsReady}) {
 
   function onGlobeReady() {
     globeIsReady();
+  }
+
+  function onPointClick(d) {
+    if (activePoint.length === 0) {
+      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 1})
+      setActivePoint(activePoint => [...activePoint, d]);
+    } else {
+      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 3})
+      setActivePoint([])
+    }
   }
 
   const handleOnChange = (position) => {
@@ -118,6 +128,7 @@ function Globe({globeIsReady}) {
         pointAltitude={0}
         pointColor={d => colorScale(d.agency)}
         pointLabel={d => `<div><b>${d.label}</b></div>`}
+        onPointClick = {d => onPointClick(d)}
 
         ringsData={activeFilters[1] ? ringsData:[]}
         ringColor={d => colorScale(d.agency)}

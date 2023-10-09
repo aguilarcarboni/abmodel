@@ -16,7 +16,6 @@ function Missions() {
   const globeEl = useRef(undefined);
 
   const colorScale = d3.scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
-  const labelsTopOrientation = new Set(['Apollo 12', 'Luna 2', 'Luna 20', 'Luna 21', 'Luna 24', 'LCROSS Probe']); // avoid label collisions
 
   const options = {
     focusAnimationDuration: 2000,
@@ -30,8 +29,10 @@ function Missions() {
 
   function onPointClick(d) {
     if (activePoint.length === 0) {
+      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 1})
       setActivePoint(activePoint => [...activePoint, d]);
     } else {
+      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 3})
       setActivePoint([])
     }
   }
@@ -60,9 +61,12 @@ function Missions() {
       <div className='popup'>
           {activePoint.map((el,index)=> (
             <div key={index}>
-            <p className='subtitle'>{el.lat}</p>
-            <p className='subtitle'>{el.lng}</p>
-            <p className='subtitle'>{el.lat}</p>
+              <p className='subtitle'>Label: {el.label}</p>
+              <p className='subtitle'>Latitude: {el.lat}</p>
+              <p className='subtitle'>Longitude: {el.lng}</p>
+              <p className='subtitle'>Agency: {el.agency}</p>
+              <p className='subtitle'>Date: {el.date}</p>
+              <a href={el.url}>Wikipedia site</a>
             </div>
           ))}
       </div>:''}
