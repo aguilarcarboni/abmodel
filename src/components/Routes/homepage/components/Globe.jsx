@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import * as d3 from "d3-scale"
 import ReactGlobe from 'react-globe.gl';
@@ -108,6 +108,7 @@ function Globe({globeIsReady}) {
         options={options}
         height = {height}
         width={width}
+
         showGlobe={true}
         showAtmosphere={true}
         ref={globeEl}
@@ -127,6 +128,7 @@ function Globe({globeIsReady}) {
         ringMaxRadius = {d => d.magnitude * 2}
         ringPropagationSpeed = {d => d.magnitude}
       />
+    </div>
   )}
 
 export default Globe
