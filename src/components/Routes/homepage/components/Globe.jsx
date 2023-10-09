@@ -107,6 +107,20 @@ function Globe({globeIsReady}) {
           </div>
         ))}
       </div>
+      {activePoint.length !== 0 ? 
+      <div className='popup'>
+          {activePoint.map((el,index)=> (
+            <div key={index}>
+              <p className='subtitle'>Label: {el.label.slice(0,4)}</p>
+              <p className='subtitle'>Magnitude: {el.magnitude}</p>
+              <p className='subtitle'>Latitude: {el.lat}</p>
+              <p className='subtitle'>Longitude: {el.lng}</p>
+              <p className='subtitle'>Agency: {el.agency}</p>
+              <p className='subtitle'>Date: {el.date}</p>
+              <a href={el.url}>Wikipedia site</a>
+            </div>
+          ))}
+      </div>:''}
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"

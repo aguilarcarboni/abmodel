@@ -228,6 +228,12 @@ button {
       margin: 2vh 0 2vh 0;
     }
   }
+  .popup {
+    position: absolute;
+    z-index: 100;
+    right: 1vw;
+    top: 35vh;
+  }
 }
 
 .information {
