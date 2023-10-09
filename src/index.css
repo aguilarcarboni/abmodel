@@ -4,6 +4,9 @@
   --red: rgba(255,49,49,1)
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 html {
   margin: 0;
@@ -113,6 +116,10 @@ button {
   justify-content: center;
   align-items: flex-end;
   height: 100%;
+  .block {
+    margin: 0 2vw 0 2vw;
+    padding: 3vh 3vw 3vh 3vw
+  }
 }
 
 .moonInfoContainer {
@@ -123,15 +130,18 @@ button {
   .information {
     height: 80%;
     .block {
-    padding: 3vh 0 3vh 0 !important;
-    margin: 0 !important;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    align-items: center;
-    .title {
-      font-size: 6vmax;
-    }
+      padding: 3vh 0 3vh 0 !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      align-items: center;
+      .title {
+        font-size: 6vmax;
+      }
+      .block::-webkit-scrollbar {
+        display: none;
+      }
     }
     .link {
       display: flex;
@@ -151,8 +161,19 @@ button {
 .ourTeamContainer {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
+  .block {
+    margin: 5vh 0 0 0;
+    height: 60vh !important;
+    padding: 0;
+    .title {
+      margin: 2vh 2vw 2vh 2vw;
+    }
+    .subtitle {
+      margin: 2vh 2vw 2vh 2vw;
+    }
+  }
   .back {
     position: absolute;
     z-index: 100;
@@ -182,6 +203,14 @@ button {
     height: 80%;
     .block {
       height: 70%;
+      margin: 0 3vw 0 3vw;
+      overflow-y: scroll;
+      .title {
+        margin: 2vh 2vw 2vh 2vw;
+      }
+      .subtitle {
+        margin: 2vh 2vw 2vh 2vw;
+      }
     }
   }
 }
@@ -213,20 +242,19 @@ button {
   z-index: 100;
   .block {
     background-color: var(--grayTransparent);
-    margin: 0 2vw 0 2vw;
     border-radius: 2vmax;
     width: 100%;
     height: 25vh;
-    padding: 3vmax;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
     .link {
       height: 100%;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: end;
+      justify-content: flex-end;
       text-decoration: none;
       cursor: pointer;
       .button {
@@ -252,9 +280,11 @@ button {
   justify-content: center;
   align-items: center;
   height: 100%;
-  .information {
-    overflow-y: scroll;
-    height: 60%;
+  .block {
+    height: 50vh;
+    width: 95%;
+    padding: 5vh 2vw 5vh 2vw;
+    margin: 5vh 0 0 0;
   }
 }
 
@@ -310,5 +340,13 @@ button {
     z-index: 100;
     right: 5vw;
     top: 15vh;
+  }
+}
+
+.memberContainer {
+  width: fit-content;
+  height: fit-content;
+  .image {
+    height:20vh;
   }
 }
