@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import EmptyGlobe from '../../../EmptyGlobe'
 import TeamDescription from './TeamDescription'
 
 const OurTeam = () => {
@@ -9,13 +8,13 @@ const OurTeam = () => {
     <div className='ourTeamContainer'>
       <div className='back'> 
         <Link className='button' to='../about'>
-            <p className='subtitle'>Go back</p>
+          <i class="bi bi-caret-left-fill" style={{color: 'white', fontSize:'2vmax'}}></i>
         </Link>
       </div>
       <div className='information'>
         <div className='block'>
           <p className='title'>
-            We are Team Alfa Buena Onda Maravilla Dinamita Escuadrón Lobo. 
+            We are Team "Alfa Buena Onda Maravilla Dinamita Escuadrón Lobo" 
           </p>
           <p className='title'>
             ABMODEL for short.
@@ -29,7 +28,6 @@ const OurTeam = () => {
         <TeamDescription />
         </div>
       </div>
-      <EmptyGlobe />
     </div>
   )
 }

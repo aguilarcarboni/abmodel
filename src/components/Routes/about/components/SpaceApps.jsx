@@ -1,19 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import EmptyGlobe from '../../../EmptyGlobe'
-
 const SpaceApps = () => {
   return (
     <div className='spaceAppsContainer'>
       <div className='back'> 
         <Link className='button' to='../about'>
-            <p className='subtitle'>Go back</p>
+          <i class="bi bi-caret-left-fill" style={{color: 'white', fontSize:'2vmax'}}></i>
         </Link>
       </div>
       <div className='information' style={{display: 'flex'}}>
           <div className='block'>
-            <h1 className='title'>NASA Space Apps Challenge 2023</h1>
+            <h1 className='title' style={{fontSize: '4vmax'}}>NASA Space Apps Challenge 2023</h1>
             <p className='subtitle'> 
               The NASA International Space Apps Challenge (Space Apps) is a 
               global hackathon that brings together a diverse community of coders, scientists, 
@@ -29,7 +27,7 @@ const SpaceApps = () => {
             <p className='subtitle'>See more: https://www.spaceappschallenge.org/about/</p>
           </div>
           <div className='block'>
-          <h1 className='title'> 
+          <h1 className='title' style={{fontSize: '4vmax'}}> 
             Make a Moonquake Map 2.0!
           </h1>
           <p className='subtitle'>
@@ -43,7 +41,6 @@ const SpaceApps = () => {
             </p>
         </div>
       </div>
-      <EmptyGlobe />
     </div>
   )
 }

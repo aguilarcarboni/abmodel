@@ -21,10 +21,10 @@ const Navbar = () => {
                 <p className={location.pathname === '/' ? 'link active':'link'} >Home</p>
             </Link>
             <Link className='button' to='/about'>
-                <p className={location.pathname === '/about' ? 'link active':'link'}>About us</p>
+                <p className={location.pathname === '/about' || location.pathname === '/about/our-team' ||location.pathname === '/about/space-apps' ? 'link active':'link'}>About us</p>
             </Link>
             <Link className='button' to='/moon'>
-                <p className={location.pathname === '/moon' ? 'link active':'link'}>Moon</p>
+                <p className={location.pathname === '/moon' || location.pathname === '/moon/missions' ? 'link active':'link'}>Moon</p>
             </Link>
             <Link className='button' to='/quakes'>
                 <p className={location.pathname === '/quakes' ? 'link active':'link'}>Quakes</p>

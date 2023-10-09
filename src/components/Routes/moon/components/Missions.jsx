@@ -42,16 +42,17 @@ function Missions() {
 
   }, []); 
 
-  console.log(landingSites)
+  console.log(activePoint)
   
   return (
     <div className='missionsContainer'>
       <div className='back'> 
         <Link className='button' to='../moon'>
-            <p className='subtitle'>Go back</p>
+          <i class="bi bi-caret-left-fill" style={{color: 'white', fontSize:'2vmax'}}></i>
         </Link>
       </div>
-      {activePoint.length !== 0 ? <div className='popup'>
+      {activePoint.length !== 0 ? 
+      <div className='popup'>
         {activePoint.map((el, index) => (
           <div key={index}>{el.lat}</div>
         ))}
