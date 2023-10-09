@@ -10,12 +10,12 @@ The application was developed using the JavaScript React library for all the int
 
 
 #### About the team
-Andrea Hidalgo Piedra  ahidalgo094@gmail.com - Geología y Cívil UCR
-Víctor Mora Vega - vmv4655@gmail.com  - Software developer
-Stephanie Leitón Ramírez - stephleitoncr@gmail.com  - Computación UCR
-Andres Aguilar Carboni-aguilarcarboni@gmail.com- Ciencias de la Computación Texas Tech
-Ana Carolina Méndez Solís - carolinams0301@gmail.com - Eléctrica UCR
-Larisa Torres Dorati - laritorresdorati@hotmail.com - Mecánica UCR
++ Andrea Hidalgo Piedra  ahidalgo094@gmail.com - Geología y Cívil UCR
++ Víctor Mora Vega - vmv4655@gmail.com  - Software developer
++ Stephanie Leitón Ramírez - stephleitoncr@gmail.com  - Computación UCR
++ Andres Aguilar Carboni-aguilarcarboni@gmail.com- Ciencias de la Computación Texas Tech
++ Ana Carolina Méndez Solís - carolinams0301@gmail.com - Eléctrica UCR
++ Larisa Torres Dorati - laritorresdorati@hotmail.com - Mecánica UCR
 
 
 #### Space Agency Data
