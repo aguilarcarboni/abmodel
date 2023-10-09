@@ -11,17 +11,20 @@ function Globe() {
 
   const filters = [
     {
-      name: 'points',
+      name: 'Points',
     },
     {
-      name: 'rings',
+      name: 'Rings',
+    },
+    {
+      name: 'Heatmap',
     },
   ]
 
   const [quakes, setQuakes] = useState([])
   const [state, setState] = useState(globeState.POINTS)
   const [activeFilters, setActiveFilters] = useState(
-    new Array(2).fill(true)
+    new Array(3).fill(true)
   );
 
   const colorScale = d3.scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
@@ -78,22 +81,22 @@ function Globe() {
     propagationSpeed: 20,
   }))
 
-  console.log(activeFilters)
-
   return (
     <div className='globeContainer'>
-      {filters.map((el, index) => (
-        <div key = {index}>
-          <label>{el.name}</label>
-          <input
-            type="checkbox"
-            name={el.name}
-            value={el.name}
-            checked={activeFilters[index]}
-            onChange={() => handleOnChange(index)}
-          />
-        </div>
-      ))}
+      <div className='filtersContainer'>
+        {filters.map((el, index) => (
+          <div key = {index} className='button'>
+            <label>{el.name}: </label>
+            <input
+              type="checkbox"
+              name={el.name}
+              value={el.name}
+              checked={activeFilters[index]}
+              onChange={() => handleOnChange(index)}
+            />
+          </div>
+        ))}
+      </div>
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"

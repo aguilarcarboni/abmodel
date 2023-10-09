@@ -1,10 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import EmptyGlobe from '../../../EmptyGlobe'
 
 const OurTeam = () => {
   return (
     <div className='ourTeamContainer'>
+      <div className='back'> 
+        <Link className='button' to='../about'>
+            <p className='subtitle'>Go back</p>
+        </Link>
+      </div>
       <div className='information'>
         <p className='subtitle'>
           We are Team Alfa Buena Onda Maravilla Dinamita Escuadrón Lobo. 

@@ -14,6 +14,8 @@ import OurTeam from './components/Routes/about/components/OurTeam';
 import SpaceApps from './components/Routes/about/components/SpaceApps';
 import Quakes from './components/Routes/quakes/Quakes';
 
+import logo from './components/assets/nasa-logo.png'
+
 
 const App = () => {
   return (
@@ -32,6 +34,9 @@ const App = () => {
           <Route exact path ='/404' element={'404'}/>
           <Route exact path='/resources' element={<Resources/>}/>
         </Routes>
+        <div className='logoContainer'>
+          <img src={logo} alt='Nasa Logo' className='logo'></img>
+        </div>
       </Router>
     </div>
   )

@@ -1,6 +1,7 @@
 :root {
   --grayTransparent: rgba(75,75,75, .15);
-  --blue: rgba(0, 75, 173,1)
+  --blue: rgba(0, 75, 173,1);
+  --red: rgba(255,49,49,1)
 }
 
 
@@ -44,8 +45,12 @@ button {
   border: none;
 }
 
+.subtitle {
+  font-size: 1.5vmax
+}
+
 .active {
-  color: red !important;
+  color: var(--red) !important;
 }
 
 .indent {
@@ -108,9 +113,6 @@ button {
   justify-content: center;
   align-items: flex-end;
   height: 100%;
-  .subtitle {
-    font-size: 1.5vmax;
-  }
 }
 
 .moonInfoContainer {
@@ -118,8 +120,31 @@ button {
   justify-content: center;
   align-items: flex-end;
   height: 100%;
-  .subtitle {
-    font-size: 1.5vmax;
+  .information {
+    height: 80%;
+    .block {
+    padding: 3vh 0 3vh 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    .title {
+      font-size: 6vmax;
+    }
+    }
+    .link {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      .button {
+        margin: 2vh 0 0 0;
+        border-radius: 2vmax;
+        width: fit-content;
+        background-color: var(--red);
+        padding: 2vmax;
+      }
+    }
   }
 }
 
@@ -128,8 +153,14 @@ button {
   justify-content: center;
   align-items: flex-end;
   height: 100%;
-  .subtitle {
-    font-size: 1.5vmax;
+  .back {
+    position: absolute;
+    z-index: 100;
+    left: 2vw;
+    top: 15vh;
+    .button {
+      text-decoration: none;
+    }
   }
 }
 
@@ -138,9 +169,15 @@ button {
   justify-content: center;
   align-items: flex-end;
   height: 100%;
-  .subtitle {
-    font-size: 1.5vmax;
-  }
+  .back {
+    position: absolute;
+    z-index: 100;
+    left: 2vw;
+    top: 15vh;
+    .button {
+      text-decoration: none;
+      }
+    }
   .information {
     height: 80%;
     .block {
@@ -152,6 +189,18 @@ button {
 .globeContainer {
   background-color: rgb(0, 0, 0);
   margin: 0 0 0 0;
+  display: flex;
+  .filtersContainer {
+    background-color: var(--grayTransparent);
+    padding: 3vh 1.5vw 3vh 1.5vw;
+    position: absolute;
+    right: 5vw;
+    top: 15vh;
+    z-index: 100;
+    .button {
+      margin: 2vh 0 2vh 0;
+    }
+  }
 }
 
 .information {
@@ -201,9 +250,42 @@ button {
 .quakesContainer {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
   .information {
     overflow-y: scroll;
+    height: 60%;
+  }
+}
+
+.logoContainer {
+  position: absolute;
+  bottom: 3vh;
+  right: 48vw;
+  .logo {
+    height: 5vh;
+  }
+}
+
+
+.missionsContainer {
+  background-color: rgb(0, 0, 0);
+  margin: 0 0 0 0;
+  display: flex;
+  align-items: flex-start;
+  .back {
+    position: absolute;
+    z-index: 100;
+    left: 2vw;
+    top: 15vh;
+    .button {
+      text-decoration: none;
+    }
+  }
+  .popup {
+    position: absolute;
+    z-index: 100;
+    right: 5vw;
+    top: 15vh;
   }
 }
