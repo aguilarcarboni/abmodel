@@ -6,8 +6,8 @@ import { CSSTransition } from 'react-transition-group';
 const LoadingPage = ({showLoadingPage}) => {
     const nodeRef = useRef(null);
     const animationStyle = {
-        heigh: '400px',
-        width: '400px',
+        heigh: '300px',
+        width: '300px',
     }
 
     return (
