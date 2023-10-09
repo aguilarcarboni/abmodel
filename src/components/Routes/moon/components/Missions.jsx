@@ -5,9 +5,10 @@ import * as d3 from "d3-scale"
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 import ReactGlobe from 'react-globe.gl';
+import LoadingPage from '../../../LoadingPage';
 
 function Missions() {
-
+  const [loading, setLoading] = useState(true)
   const [landingSites, setLandingSites] = useState([]);
   const [activePoint, setActivePoint] = useState([])
   
@@ -22,6 +23,10 @@ function Missions() {
     focusEasingFunction: ['Linear', 'None'],
     ambientLightColor: 'white',
   };
+
+  function onGlobeReady() {
+    setLoading(false)
+  }
 
   function onPointClick(d) {
     if (activePoint.length === 0) {
@@ -41,10 +46,10 @@ function Missions() {
     setLandingSites(jsonData)
 
   }, []); 
-
-  console.log(activePoint)
   
   return (
+    <>
+    <LoadingPage showLoadingPage={loading}/>
     <div className='missionsContainer'>
       <div className='back'> 
         <Link className='button' to='../moon'>
@@ -68,6 +73,9 @@ function Missions() {
         showGlobe={true}
         showAtmosphere={true}
         ref={globeEl}
+        animateIn={true}
+        waitForGlobeReady={true}
+        onGlobeReady={onGlobeReady}
 
         pointsData={landingSites}
         labelSize={1.7}
@@ -82,6 +90,7 @@ function Missions() {
         onPointClick = {d => onPointClick(d)}
       />
     </div>
+    </>
   )}
 
 export default Missions
