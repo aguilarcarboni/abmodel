@@ -5,22 +5,22 @@ const TeamDescription = () => {
     const baseURL = ''
     const members = [
         {
-            name: 'Stephanie',
+            name: "Stephanie",
         },
         {
-            name: 'Andrea',
+            name: "Andrea",
         },
         {
-            name: 'Carolina',
+            name: "Carolina",
         },
         {
-            name: 'Victor',
+            name: "Victor",
         },
         {
-            name: 'Larissa',
+            name: "Larissa",
         },
         {
-            name: 'Andres',
+            name: "Andres",
         }
     ]
   return (
