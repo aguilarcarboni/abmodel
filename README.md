@@ -1,6 +1,5 @@
-# ABMODEL
-## NASA International Space Apps Challenge 2023 Submission - Make a Moonquake Map 2.0!
-
+# NASA International Space Apps Challenge 2023 Submission - Make a Moonquake Map 2.0!
+## ABMODEL
 2023 Costa Rica Local Winner
 
 #### Summary of the Project
