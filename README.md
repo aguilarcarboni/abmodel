@@ -1,6 +1,5 @@
 # NASA International Space Apps Challenge 2023 Submission - Make a Moonquake Map 2.0!
-## ABMODEL
-2023 Costa Rica Local Winner
+## ABMODEL - 2023 Costa Rica Local Winner
 
 #### Summary of the Project
 At present, NASA possesses a repository of seismological data obtained during the Apollo missions conducted between 1969 and 1977. The potential utilization of this data to generate a seismic map opens the door to the development of projects such as identifying regions with a higher density of seismic activity, representing a threat to future space missions. The solution offered by the application lies in the planning of suitable landing sites for projects like the Artemis program, which aims to establish a base on the Moon through the use of heat maps. This would provide companies interested in investing in lunar and solar system travel with an economic advantage, knowing that the infrastructure is located in a historically seismically stable area. Vital systems such as water production for drinking, oxygen purification for breathing, essential station power generation, and onboard technology would be situated on stable ground, seismically speaking. Furthermore, the generation of a seismological map would facilitate future geological studies. By analyzing the propagation of waves through the medium, it becomes possible to study the internal composition of the Moon, leading to a better understanding of the dynamics of not only the Moon but also Earth and other celestial bodies.
