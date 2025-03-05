@@ -16,11 +16,7 @@ function Globe({globeIsReady}) {
     {
       name: 'Rings',
       description: 'Show impact radius'
-    },
-    {
-      name: 'Heatmap',
-      description: 'Show intensity distribution'
-    },
+    }
   ]
 
   const [quakes, setQuakes] = useState([])
@@ -28,7 +24,9 @@ function Globe({globeIsReady}) {
     new Array(3).fill(true)
   );
 
-  const colorScale = d3.scaleOrdinal(['#FF4B4B', '#4B83FF', '#4BFF83', '#FFD700']);
+  const colorScale = d3.scaleLinear()
+    .domain([0, 2, 4, 6])
+    .range(['#4575b4', '#74add1', '#fdae61', '#d73027']);
 
   const options = {
     focusAnimationDuration: 2000,
@@ -76,7 +74,7 @@ function Globe({globeIsReady}) {
 
   const pointsData = [...quakes].map((element) => ({
     ...element,
-    size: element.magnitude * 4
+    size: element.magnitude * 2
   }));
 
   const ringsData = [...quakes].map((element) => ({
@@ -145,14 +143,14 @@ function Globe({globeIsReady}) {
         `}
         pointRadius="size"
         pointAltitude={0.01}
-        pointColor={d => colorScale(d.agency)}
-        pointResolution={3}
+        pointColor={d => colorScale(d.magnitude)}
+        pointResolution={36}
         pointsMerge={true}
         pointGlow={true}
         onPointClick={onPointClick}
 
         ringsData={activeFilters[1] ? ringsData : []}
-        ringColor={d => colorScale(d.agency)}
+        ringColor={d => colorScale(d.magnitude)}
         ringMaxRadius="maxR"
         ringPropagationSpeed="propagationSpeed"
         ringRepeatPeriod="repeatPeriod"

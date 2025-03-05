@@ -178,23 +178,22 @@ button {
 
 .welcomeOverlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  top: 100px;
+  left: 2rem;
+  text-align: left;
   z-index: 10;
-  padding: 2rem;
+  padding: 1.5rem;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: 0;
-  animation: fadeIn 1s ease-out forwards;
-  max-width: 600px;
+  animation: fadeInTopRight 1s ease-out forwards;
+  max-width: 400px;
 }
 
 .welcomeOverlay h1 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   background: linear-gradient(45deg, #fff, #f0f0f0);
   -webkit-background-clip: text;
@@ -202,10 +201,21 @@ button {
 }
 
 .welcomeOverlay p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+@keyframes fadeInTopRight {
+  from {
+    opacity: 0;
+    transform: translate(20px, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 .aboutContainer {
@@ -625,7 +635,7 @@ button {
 .filtersContainer {
   position: absolute;
   right: 2rem;
-  top: 2rem;
+  bottom: 2rem;
   z-index: 100;
   background: rgba(40, 40, 40, 0.8);
   backdrop-filter: blur(10px);
@@ -877,14 +887,102 @@ button {
   height: 100%;
   width: 100%;
   z-index: 1000;
-  background-color: rgb(0, 0, 0);
-  .loadingAnimation {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+.planet-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.planet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #4B79A1, #283E51);
+  border-radius: 50%;
+  box-shadow: inset -30px -30px 50px rgba(0,0,0,0.4),
+              20px 20px 60px rgba(0,0,0,0.4);
+  animation: rotate 20s linear infinite;
+}
+
+.planet-ring {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  top: 75px;
+  left: -50px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #a3a3a3 0%, #d4d4d4 50%, #a3a3a3 100%);
+  transform: rotateX(75deg);
+  opacity: 0.6;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.loading-text span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-text span:nth-child(2) { animation-delay: 0.2s; }
+.loading-text span:nth-child(3) { animation-delay: 0.4s; }
+.loading-text span:nth-child(4) { animation-delay: 0.6s; }
+.loading-text span:nth-child(5) { animation-delay: 0.8s; }
+.loading-text span:nth-child(6) { animation-delay: 1.0s; }
+.loading-text span:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.95); }
 }
 
 .loadingPageAnimation-exit {
@@ -893,8 +991,9 @@ button {
 
 .loadingPageAnimation-exit-active {
   opacity: 0;
-  transition: opacity 500ms
+  transition: opacity 500ms;
 }
+
 .logoContainer {
   position: fixed;
   bottom: 3vh;

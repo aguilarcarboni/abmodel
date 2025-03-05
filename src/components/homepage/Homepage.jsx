@@ -24,7 +24,7 @@ const Homepage = () => {
       <div className="homeContainer">
         {showWelcome && (
           <div className="welcomeOverlay">
-            <h1>Welcome to ABMODEL</h1>
+            <h1>Welcome</h1>
             <p>
               Explore the lunar surface and discover moonquake data through our interactive 3D visualization.
               Use the filters to view different data layers and click on points to learn more about specific events.
