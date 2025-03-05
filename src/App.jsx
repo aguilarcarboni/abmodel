@@ -1,21 +1,19 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation }   
+import { BrowserRouter as Router, Routes, Route }   
 from 'react-router-dom'; 
 import './App.css';
 
 import Navbar from './components/Navbar';
-import Homepage from './components/Routes/homepage/Homepage';
-import About from './components/Routes/about/About';
-import Header from './components/Header';
-import Moon from './components/Routes/moon/Moon'
-import Resources from './components/Routes/resources/Resources'
-import Missions from './components/Routes/moon/components/Missions';
-import OurTeam from './components/Routes/about/components/OurTeam';
-import SpaceApps from './components/Routes/about/components/SpaceApps';
-import Quakes from './components/Routes/quakes/Quakes';
-import Future from './components/Routes/future/Future';
+import Homepage from './components/homepage/Homepage';
+import About from './components/about/About';
+import Moon from './components/moon/Moon'
+import Resources from './components/resources/Resources'
+import Missions from './components/moon/components/Missions';
+import OurTeam from './components/about/components/OurTeam';
+import SpaceApps from './components/about/components/SpaceApps';
+import Quakes from './components/quakes/Quakes';
+import Future from './components/future/Future';
 
-import logo from './components/assets/nasa-logo.png'
+import logo from './assets/nasa-logo.png'
 
 
 const App = () => {
@@ -23,7 +21,6 @@ const App = () => {
     <div className='App'>
       <Router>
         <Navbar />
-        <Header />
         <Routes>
           <Route exact path ='/' element={<Homepage/>}/>
           <Route exact path='/about' element={<About/>}/>

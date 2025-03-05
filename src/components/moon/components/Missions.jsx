@@ -1,11 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import { Link } from 'react-router-dom';
 import * as d3 from "d3-scale"
-
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
-
 import ReactGlobe from 'react-globe.gl';
-import LoadingPage from '../../../LoadingPage';
+import LoadingPage from '../../LoadingPage';
 
 function Missions() {
   const [loading, setLoading] = useState(true)

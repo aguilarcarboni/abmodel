@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react'
-import useWindowDimensions from './hooks/useWindowDimensions';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 import ReactGlobe from 'react-globe.gl';
 
 function Globe() {
