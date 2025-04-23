@@ -32,3 +32,11 @@ PDS Geoscience Node
 #### References
 - https://jamboard.google.com/d/1LYc2lkACWDQPqBNe8mqTd4OYVIta9zisJGIDmwwAjBY/edit?usp=meet_whiteboard
 - https://ec.europa.eu/research-and-innovation/en/horizon-magazine/moonquakes-and-marsquakes-how-we-peer-inside-other-worlds
+
+### Roadmap  
+- [x] Finish Hackathon
+- [x] Rehaul the UI
+- [x] Fix the markers and tooltipss
+- [ ] Make the tooltips prettier and more informative
+- [ ] Add real time data
+- [ ] Add other planets and stellar entities
