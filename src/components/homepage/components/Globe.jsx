@@ -11,29 +11,21 @@ function Globe({globeIsReady}) {
   const filters = [
     {
       name: 'Points',
-      description: 'Show moonquake locations'
     },
     {
       name: 'Rings',
-      description: 'Show impact radius'
     }
   ]
 
   const [quakes, setQuakes] = useState([])
-  const [activeFilters, setActiveFilters] = useState(
-    new Array(3).fill(true)
-  );
+  const [activeFilters, setActiveFilters] = useState([true, false]);
 
-  const colorScale = d3.scaleLinear()
-    .domain([0, 2, 4, 6])
-    .range(['#4575b4', '#74add1', '#fdae61', '#d73027']);
+  const colorScale = d3.scaleOrdinal(['#64b5f6', '#1e88e5', '#0d47a1', '#e3f2fd']);
 
   const options = {
     focusAnimationDuration: 2000,
-    focusEasingFunction: ['Cubic', 'InOut'],
+    focusEasingFunction: ['Linear', 'None'],
     ambientLightColor: 'white',
-    pointLightColor: 'white',
-    pointLightIntensity: 3,
   };
 
   function onGlobeReady() {
@@ -42,10 +34,10 @@ function Globe({globeIsReady}) {
 
   function onPointClick(d) {
     if (activePoint.length === 0) {
-      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 1.5}, 1000)
+      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 1})
       setActivePoint(activePoint => [...activePoint, d]);
     } else {
-      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 3}, 1000)
+      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 3})
       setActivePoint([])
     }
   }
@@ -59,13 +51,10 @@ function Globe({globeIsReady}) {
 
   useEffect(() => {
     // set viewport settings
-    globeEl.current.pointOfView({ lat: 39.6, lng: -98.5, altitude: 3}, 0); 
+    globeEl.current.pointOfView({ lat: 39.6, lng: -98.5, altitude: 3}); 
 
     // set globe settings
-    globeEl.current.controls().autoRotateSpeed = 0.35;
-    globeEl.current.controls().enableZoom = true;
-    globeEl.current.controls().enablePan = true;
-    globeEl.current.controls().dampingFactor = 0.1;
+    globeEl.current.controls().autoRotateSpeed = 0.5;
 
     // populate data array
     let jsonData = require('../assets/superficial_moonquake_locations.json')
@@ -73,26 +62,36 @@ function Globe({globeIsReady}) {
   },[])
 
   const pointsData = [...quakes].map((element) => ({
-    ...element,
-    size: element.magnitude * 2
+    label: element.label,
+    lat: element.lat,
+    lng: element.lng,
+    magnitude: element.magnitude,
+    year: element.year,
+    day: element.day,
+    hour: element.hour,
+    minute: element.minute,
+    second: element.second
   }));
 
+
   const ringsData = [...quakes].map((element) => ({
-    ...element,
-    maxR: element.magnitude * 3,
-    propagationSpeed: element.magnitude * 0.5,
-    repeatPeriod: 1000
-  }));
+    label: element.label,
+    lat: element.lat,
+    lng: element.lng,
+    magnitude: element.magnitude,
+    year: element.year,
+    day: element.day,
+    hour: element.hour,
+    minute: element.minute,
+    second: element.second,
+  }))
 
   return (
     <div className='globeContainer'>
       <div className='filtersContainer'>
         {filters.map((el, index) => (
-          <div key={index} className='button'>
-            <div>
-              <label>{el.name}</label>
-              <p style={{fontSize: '0.8rem', opacity: 0.7}}>{el.description}</p>
-            </div>
+          <div key = {index} className='button'>
+            <label>{el.name}: </label>
             <input
               type="checkbox"
               name={el.name}
@@ -103,58 +102,65 @@ function Globe({globeIsReady}) {
           </div>
         ))}
       </div>
-      {activePoint.length !== 0 && 
-        <div className='popup'>
+      {activePoint.length !== 0 ? 
+      <div className='popup'>
           {activePoint.map((el,index)=> (
             <div key={index}>
-              <h3 style={{fontSize: '1.2rem', marginBottom: '1rem'}}>{el.label}</h3>
+              <p className='subtitle'>Year: {el.year}</p>
               <p className='subtitle'>Magnitude: {el.magnitude}</p>
-              <p className='subtitle'>Location: {el.lat}°N, {el.lng}°E</p>
-              <p className='subtitle'>Date: {new Date(el.year, 0, el.day).toLocaleDateString()}</p>
-              <p className='subtitle'>Time: {el.hour}:{el.minute}:{el.second}</p>
-              {el.url && <a href={el.url} target="_blank" rel="noopener noreferrer">Learn More</a>}
+              <p className='subtitle'>Latitude: {el.lat}</p>
+              <p className='subtitle'>Longitude: {el.lng}</p>
             </div>
           ))}
-        </div>
-      }
+      </div>:''}
       <ReactGlobe
         globeImageUrl={"//unpkg.com/globe.gl/example/moon-landing-sites/lunar_surface.jpg"}
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-        backgroundColor="#000000"
+        backgroundColor = "#000000"
         options={options}
-        height={height}
+        height = {height}
         width={width}
 
         showGlobe={true}
         showAtmosphere={true}
-        atmosphereColor="#ffffff"
-        atmosphereAltitude={0.1}
         ref={globeEl}
         animateIn={true}
         waitForGlobeReady={true}
         onGlobeReady={onGlobeReady}
 
-        pointsData={activeFilters[0] ? pointsData : []}
-        pointLabel={d => `
-          <div style="padding: 10px; background: rgba(0,0,0,0.8); border-radius: 5px;">
-            <div style="font-weight: bold; margin-bottom: 5px;">${d.label}</div>
-            <div>Magnitude: ${d.magnitude}</div>
-          </div>
-        `}
-        pointRadius="size"
+        pointsData={activeFilters[0] ? pointsData:[]}
+        labelSize={1.7}
+        pointRadius={d => d.magnitude}
         pointAltitude={0.01}
         pointColor={d => colorScale(d.magnitude)}
-        pointResolution={36}
-        pointsMerge={true}
-        pointGlow={true}
-        onPointClick={onPointClick}
+        pointLabel={d => `
+          <div style="
+            padding: 8px 12px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          ">
+            <div style="
+              color: #fff;
+              font-size: 14px;
+              font-weight: 500;
+              letter-spacing: 0.5px;
+            ">
+              ${d.year}
+            </div>
+            <div style="
+              color: #64b5f6;
+              font-size: 12px;
+              margin-top: 4px;
+            ">
+              Magnitude: ${d.magnitude}
+            </div>
+          </div>
+        `}
+        onPointClick = {d => onPointClick(d)}
 
-        ringsData={activeFilters[1] ? ringsData : []}
+        ringsData={activeFilters[1] ? ringsData:[]}
         ringColor={d => colorScale(d.magnitude)}
-        ringMaxRadius="maxR"
-        ringPropagationSpeed="propagationSpeed"
-        ringRepeatPeriod="repeatPeriod"
-        ringAltitude={0.01}
+        ringMaxRadius = {d => d.magnitude}
+        ringPropagationSpeed = {d => d.magnitude}
       />
     </div>
   )}
