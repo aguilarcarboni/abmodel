@@ -6,8 +6,6 @@ import LoadingPage from '../../LoadingPage';
 
 function Missions() {
 
-
-  const [quakes, setQuakes] = useState([])
   const colorScale = d3.scaleOrdinal(['#64b5f6', '#1e88e5', '#0d47a1', '#e3f2fd']);
 
   const options = {
