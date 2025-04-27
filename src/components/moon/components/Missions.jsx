@@ -11,8 +11,8 @@ function Missions() {
   const colorScale = d3.scaleOrdinal(['#64b5f6', '#1e88e5', '#0d47a1', '#e3f2fd']);
 
   const options = {
-    focusAnimationDuration: 2000,
-    focusEasingFunction: ['Linear', 'None'],
+    focusAnimationDuration: 1000,
+    focusEasingFunction: ['Cubic', 'InOut'],
     ambientLightColor: 'white',
   };
 
@@ -49,11 +49,19 @@ function Missions() {
 
   function onPointClick(d) {
     if (activePoint.length === 0) {
-      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 1})
+      globeEl.current.pointOfView({
+        lat: d.lat,
+        lng: d.lng,
+        altitude: 1.5
+      }, 1000);
       setActivePoint(activePoint => [...activePoint, d]);
     } else {
-      globeEl.current.pointOfView({lat: d.lat, lng: d.lng, altitude: 3})
-      setActivePoint([])
+      globeEl.current.pointOfView({
+        lat: d.lat,
+        lng: d.lng,
+        altitude: 3
+      }, 1000);
+      setActivePoint([]);
     }
   }
 
